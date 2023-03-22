@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # System package update and upgrade
-echo "------------------------------Software update--------------------------------" && \
+echo "------------------------------Software updating--------------------------------" && \
 sudo apt-get -y update && sudo apt-get -y upgrade && \
-echo "------------------------------Software updated--------------------------------" && \
+echo "------------------------------Software updated--------------------------------"
 
 # Remove packages which are unwanted
 echo "------------------------------Removing useless packages--------------------------------" && \
 sudo apt-get auto-remove && \
-echo "------------------------------Removed useless packages--------------------------------" && \
+echo "------------------------------Removed useless packages--------------------------------"
 
 # Basic Software Installation
 echo "------------------------------git installing--------------------------------" && \
@@ -23,9 +23,6 @@ echo "------------------------------wget installed------------------------------
 echo "------------------------------rename installing--------------------------------" && \
 sudo apt-get install -y rename && \
 echo "------------------------------rename installed--------------------------------"
-echo "------------------------------xargs installing--------------------------------" && \
-sudo apt-get install -y xargs && \
-echo "------------------------------xargs installed--------------------------------"
 echo "------------------------------snap installing--------------------------------" && \
 sudo apt-get install -y snap && \
 echo "------------------------------snap installed--------------------------------"
@@ -58,7 +55,7 @@ echo "------------------------------python-dev installing-----------------------
 
 # network scanning tool
 echo "------------------------------nmap installing--------------------------------" && \
-sudo apt-get install -y nmap
+sudo apt-get install -y nmap && \
 echo "------------------------------nmap installed--------------------------------"
 
 # lightweight and flexible command-line JSON processor
@@ -84,80 +81,37 @@ echo "------------------------------libssl-dev installing-----------------------
 sudo apt-get install -y libssl-dev && \
 echo "------------------------------libcurl14-openssl-dev installed--------------------------------"
 
-# sudo apt-get install -y libxml2 libxml2-dev libxslt1-dev build-essential libgmp-dev zlib1g-dev
+# XML files
+echo "------------------------------libxml2 installing--------------------------------" && \
+sudo apt-get install -y libxml2 && \
+echo "------------------------------libxml2 installed--------------------------------"
+echo "------------------------------libxml2-dev installing--------------------------------" && \
+sudo apt-get install -y libxml2-dev && \
+echo "------------------------------libxml2-dev installed--------------------------------"
+echo "------------------------------libxslt1-dev installing--------------------------------" && \
+sudo apt-get install -y libxslt1-dev && \
+echo "------------------------------libxslt1-dev installed--------------------------------"
 
-# sudo apt-get install -y build-essential libssl-dev libffi-dev
+# Build-essential for different compilers
+echo "------------------------------build-essential installing--------------------------------" && \
+sudo apt-get install -y build-essential && \
+echo "------------------------------build-essential installed--------------------------------"
+echo "------------------------------libgmp-dev installing--------------------------------" && \
+sudo apt-get install -y libgmp-dev && \
+echo "------------------------------libgmp-dev installed--------------------------------"
+echo "------------------------------libffi-dev installing--------------------------------" && \
+sudo apt-get install -y libffi-dev && \
+echo "------------------------------libffi-dev installed--------------------------------"
 
-# sudo apt-get install -y libldns-dev
+# Helps to simplify the programming of DNS
+echo "------------------------------libldns-dev installing--------------------------------" && \
+sudo apt-get install -y libldns-dev && \
+echo "------------------------------libldns-dev installed--------------------------------"
 
-# echo "------------------------------Go language installing--------------------------------" && \
-# echo "------------------------------Go language installed--------------------------------"
-
-# Install SublimeText
-echo "------------------------------SublimeText installing--------------------------------" && \
-cd ~/Downloads/ && \
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null && \
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list && \
-sudo apt-get update && sudo apt-get install sublime-text && \
-echo "------------------------------SublimeText installed--------------------------------"
-
-# Install Brave Browser
-echo "------------------------------Brave-browser installing--------------------------------" && \
-cd ~/Downloads/ && \
-sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg && \
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list && \
-sudo apt-get update && sudo apt-get install brave-browser && \
-echo "------------------------------Brave-browser installed--------------------------------"
-
-mkdir ~/Tools
-
-# Installing Sublist3r
-echo "------------------------------Sublist3r installing--------------------------------" && \
-cd ~/Tools && \
-git clone https://github.com/aboul3la/Sublist3r.git && \
-echo "------------------------------Sublist3r installed--------------------------------"
-
-
-# Installing SecList
-echo "------------------------------SecList installing--------------------------------" && \
-git clone https://github.com/danielmiessler/SecLists.git && \
-echo "------------------------------SecList installed--------------------------------"
-
-# Installing Aquatone
-# echo "------------------------------Aquatone installing--------------------------------" && \
-# go get github.com/michenriksen/aquatone && \
-# echo "------------------------------SublimeText installed--------------------------------"
-
-# Installing Chromium
-echo "------------------------------Chromium installing--------------------------------" && \
-sudo snap install chromium && \
-echo "------------------------------chromium installed--------------------------------"
-
-# Installing JSParser
-echo "------------------------------JSParser installing--------------------------------" && \
-git clone https://github.com/nahamsec/JSParser.git && \
-cd JSParser* && \
-sudo python setup.py install && \
-cd ~/tools/ && \
-echo "------------------------------JSParser installed--------------------------------"
-
-# Installing WPScan
-echo "------------------------------WPScan installing--------------------------------" && \
-git clone https://github.com/wpscanteam/wpscan.git && \
-cd wpscan* && \
-sudo gem install bundler && bundle install --without test && \
-cd ~/tools/ && \
-echo "------------------------------WPScan installed--------------------------------"
-
-# Installing httprobe
-# echo "------------------------------httprobe installing--------------------------------" && \
-# go get -u github.com/tomnomnom/httprobe && \
-# echo "------------------------------httprobe installed--------------------------------"
-
-# Installing waybackurls
-# echo "------------------------------waybackurls installing--------------------------------" && \
-# go get github.com/tomnomnom/waybackurls && \
-# echo "------------------------------waybackurls installed--------------------------------"
+# Compression file library
+echo "------------------------------zlib1g-dev isntalling--------------------------------" && \
+sudo apt-get install -y zlib1g-dev && \
+echo "------------------------------zlib1g-dev installed--------------------------------"
 
 # OhMyBash installation and setup
 echo "------------------------------OhMyBash installing--------------------------------" && \
@@ -165,9 +119,11 @@ echo "------------------------------OhMyBash installing-------------------------
 cd ~ && \
 
 # Take a backup of .bashrc file with time stamp
-mv ~/.bashrc ~/.bashrc.OMB`date "+%H%M%S%d%m%Y"`.bak && \
+mv ~/.bashrc ~/.bashrc.OMB`date "+%H%M%S%d%m%Y"`.bak
 
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" && \
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" &
+
+read -t 60 -p "Shell will wait for a minute to install OhMyBash"
 
 # Take a backup of the .bash_profile file with time stamp and append the three command lines in that
 if [[ -f ~/.bash_profile ]]; then
@@ -185,9 +141,131 @@ fi
 EOF
 fi
 
-# Change the theme random to robbyrussell in bash .bashrc file
-sed -i -e 's/OSH_THEME="font"/OSH_THEME="robbyrussell"/g' .bashrc
-
+# Change the theme font to robbyrussell in bash .bashrc file
+sed -i -e 's/OSH_THEME="font"/OSH_THEME="robbyrussell"/g' ~/.bashrc
 echo "------------------------------OhMyBash installed--------------------------------"
 
-# read -p "Press any key to exit the program."
+echo "------------------------------Go language installing--------------------------------" && \
+cd ~/Downloads/
+if [[ -z "$GOPATH" ]]; then
+echo "It's look like Go is not installed"
+wget https://go.dev/dl/go1.20.2.linux-amd64.tar.gz
+sudo tar -zxvf go1.20.2.linux-amd64.tar.gz
+sudo mv go /usr/local/go
+export GOPATH=/usr/local/go
+export PATH=$PATH:$GOPATH/bin
+echo 'export GOPATH=/usr/local/go' >> ~/.bash_profile
+echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.bash_profile
+source ~/.bash_profile
+sleep 1
+fi
+echo "------------------------------Go language installed--------------------------------"
+
+# Install SublimeText
+echo "------------------------------SublimeText installing--------------------------------" && \
+cd ~/Downloads/ && \
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null && \
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list && \
+sudo apt-get update && sudo apt-get install sublime-text && \
+echo "------------------------------SublimeText installed--------------------------------"
+
+# Install Brave Browser
+echo "------------------------------Brave-browser installing--------------------------------" && \
+cd ~/Downloads/ && \
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg && \
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list && \
+sudo apt-get -y update && sudo apt-get -y install brave-browser && \
+echo "------------------------------Brave-browser installed--------------------------------"
+
+mkdir ~/Tools
+
+# Installing Sublist3r
+echo "------------------------------Sublist3r installing--------------------------------" && \
+cd ~/Tools && \
+git clone https://github.com/aboul3la/Sublist3r.git && \
+echo "------------------------------Sublist3r installed--------------------------------"
+
+
+# Installing SecList
+echo "------------------------------SecList installing--------------------------------" && \
+git clone https://github.com/danielmiessler/SecLists.git && \
+cd ~/Tools/SecLists/Passwords/Leaked-Databases/ && \
+tar -zxvf rockyou.txt.tar.gz rockyou.txt && \
+cd ~/Tools && \
+echo "------------------------------SecList installed--------------------------------"
+
+# Installing Chromium
+echo "------------------------------Chromium installing--------------------------------" && \
+sudo snap install chromium && \
+echo "------------------------------chromium installed--------------------------------"
+
+# Installing JSParser
+echo "------------------------------JSParser installing--------------------------------" && \
+git clone https://github.com/nahamsec/JSParser.git && \
+cd JSParser* && \
+sudo python setup.py install && \
+cd ~/tools/ && \
+echo "------------------------------JSParser installed--------------------------------"
+
+echo "------------------------------asnlookup installing--------------------------------" && \
+git clone https://github.com/yassineaboukir/asnlookup.git && \
+cd ~/tools/asnlookup && \
+pip install -r requirements.txt && \
+cd ~/tools/ && \
+echo "------------------------------asnlookup installed--------------------------------"
+
+echo "------------------------------massdns isntalling--------------------------------" && \
+git clone https://github.com/blechschmidt/massdns.git && \
+cd ~/tools/massdns && \
+make && \
+cd ~/tools/ && \
+echo "------------------------------massdns installed--------------------------------"
+
+echo "------------------------------lazyrecon installing--------------------------------" && \
+git clone https://github.com/nahamsec/lazyrecon.git && \
+cd ~/tools/ && \
+echo "------------------------------lazyrecon installed--------------------------------"
+
+echo "------------------------------knock installing--------------------------------" && \
+git clone https://github.com/guelfoweb/knock.git && \
+cd ~/tools/ && \
+echo "------------------------------knock installed--------------------------------"
+
+echo "------------------------------virtual-host-discovery installing--------------------------------" && \
+git clone https://github.com/jobertabma/virtual-host-discovery.git && \
+cd ~/tools/ && \
+echo "------------------------------virtual-host-discovery installed--------------------------------"
+
+echo "------------------------------lazys3 installing--------------------------------" && \
+git clone https://github.com/nahamsec/lazys3.git && \
+cd ~/tools/ && \
+echo "------------------------------lazys3 installed--------------------------------"
+
+# Installing WPScan
+echo "------------------------------WPScan installing--------------------------------" && \
+git clone https://github.com/wpscanteam/wpscan.git && \
+cd wpscan* && \
+sudo gem install bundler && bundle install --without test && \
+cd ~/tools/ && \
+echo "------------------------------WPScan installed--------------------------------"
+
+# Installing httprobe
+echo "------------------------------httprobe installing--------------------------------" && \
+go get -u github.com/tomnomnom/httprobe && \
+echo "------------------------------httprobe installed--------------------------------"
+
+# Installing waybackurls
+echo "------------------------------waybackurls installing--------------------------------" && \
+go get github.com/tomnomnom/waybackurls && \
+echo "------------------------------waybackurls installed--------------------------------"
+
+# Installing aquatone
+echo "------------------------------aquatone installing--------------------------------" && \
+go get github.com/michenriksen/aquatone && \
+echo "------------------------------aquatone installed--------------------------------"
+
+echo "------------------------------unfurl installing--------------------------------" && \
+go get -u github.com/tomnomnom/unfurl && \
+echo "------------------------------unfurl installed--------------------------------"
+
+read -p "Press any key to exit the program."
