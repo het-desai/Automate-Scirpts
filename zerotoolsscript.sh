@@ -279,4 +279,6 @@ go install -v github.com/tomnomnom/unfurl@latest && \
 cd ~/tools && \
 echo "------------------------------unfurl installed--------------------------------"
 
+sudo init 6
+
 read -p "Press any key to exit the program."
