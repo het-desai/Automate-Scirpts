@@ -43,6 +43,9 @@ echo "------------------------------python2 installed---------------------------
 echo "------------------------------python-pip installing--------------------------------" && \
 sudo apt-get install -y python-pip && \
 echo "------------------------------python-pip installed--------------------------------"
+echo "------------------------------python3-pip installing--------------------------------" && \
+sudo apt-get install -y python3-pip && \
+echo "------------------------------python3-pip installed--------------------------------"
 echo "------------------------------python-dnspython installing--------------------------------" && \
 sudo apt-get install -y python-dnspython && \
 echo "------------------------------python-dnspython installed--------------------------------"
@@ -52,11 +55,6 @@ echo "------------------------------python-setuptools installed-----------------
 echo "------------------------------python-dev installing--------------------------------" && \
 sudo apt-get install -y python-dev && \
 echo "------------------------------python-dev installing--------------------------------"
-
-# network scanning tool
-echo "------------------------------nmap installing--------------------------------" && \
-sudo apt-get install -y nmap && \
-echo "------------------------------nmap installed--------------------------------"
 
 # lightweight and flexible command-line JSON processor
 echo "------------------------------JSON Processor installing--------------------------------" && \
@@ -123,7 +121,7 @@ mv ~/.bashrc ~/.bashrc.OMB`date "+%H%M%S%d%m%Y"`.bak
 
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" &
 
-read -t 60 -p "Shell will wait for a minute to install OhMyBash"
+read -t 60 -p "Wait for a minute to install OhMyBash"
 
 # Take a backup of the .bash_profile file with time stamp and append the three command lines in that
 if [[ -f ~/.bash_profile ]]; then
@@ -145,17 +143,19 @@ fi
 sed -i -e 's/OSH_THEME="font"/OSH_THEME="robbyrussell"/g' ~/.bashrc
 echo "------------------------------OhMyBash installed--------------------------------"
 
+# Installing Go Language
 echo "------------------------------Go language installing--------------------------------" && \
 cd ~/Downloads/
 if [[ -z "$GOPATH" ]]; then
-echo "It's look like Go is not installed"
 wget https://go.dev/dl/go1.20.2.linux-amd64.tar.gz
 sudo tar -zxvf go1.20.2.linux-amd64.tar.gz
 sudo mv go /usr/local/go
-export GOPATH=/usr/local/go
-export PATH=$PATH:$GOPATH/bin
+GOPATH=/usr/local/go
+PATH=$PATH:$GOPATH/bin
+PATH=$PATH:$HOME/go/bin
 echo 'export GOPATH=/usr/local/go' >> ~/.bash_profile
 echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.bash_profile
+echo 'export PATH=$PATH:$HOME/go/bin' >> ~/.bash_profile
 source ~/.bash_profile
 sleep 1
 fi
@@ -175,97 +175,108 @@ cd ~/Downloads/ && \
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg && \
 echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list && \
 sudo apt-get -y update && sudo apt-get -y install brave-browser && \
+cd ~/Downloads/ && \
 echo "------------------------------Brave-browser installed--------------------------------"
 
-mkdir ~/Tools
+mkdir ~/tools
+
+# network scanning tool
+echo "------------------------------nmap installing--------------------------------" && \
+sudo apt-get install -y nmap && \
+echo "------------------------------nmap installed--------------------------------"
+
+# Installing WPScan
+echo "------------------------------WPScan installing--------------------------------" && \
+sudo gem install wpscan && \
+echo "------------------------------WPScan installed--------------------------------"
 
 # Installing Sublist3r
 echo "------------------------------Sublist3r installing--------------------------------" && \
-cd ~/Tools && \
-git clone https://github.com/aboul3la/Sublist3r.git && \
+cd ~/tools/ && \
+sudo git clone https://github.com/aboul3la/Sublist3r.git && \
+cd ~/tools/ && \
 echo "------------------------------Sublist3r installed--------------------------------"
 
 
 # Installing SecList
 echo "------------------------------SecList installing--------------------------------" && \
-git clone https://github.com/danielmiessler/SecLists.git && \
-cd ~/Tools/SecLists/Passwords/Leaked-Databases/ && \
-tar -zxvf rockyou.txt.tar.gz rockyou.txt && \
-cd ~/Tools && \
+cd ~/tools/ && \
+sudo git clone https://github.com/danielmiessler/SecLists.git && \
+cd ~/tools/SecLists/Passwords/Leaked-Databases/ && \
+sudo tar -zxvf rockyou.txt.tar.gz rockyou.txt && \
+cd ~/tools/ && \
 echo "------------------------------SecList installed--------------------------------"
 
 # Installing Chromium
-echo "------------------------------Chromium installing--------------------------------" && \
+echo "------------------------------chromium installing--------------------------------" && \
 sudo snap install chromium && \
 echo "------------------------------chromium installed--------------------------------"
 
-# Installing JSParser
-echo "------------------------------JSParser installing--------------------------------" && \
-git clone https://github.com/nahamsec/JSParser.git && \
-cd JSParser* && \
-sudo python setup.py install && \
-cd ~/tools/ && \
-echo "------------------------------JSParser installed--------------------------------"
-
 echo "------------------------------asnlookup installing--------------------------------" && \
-git clone https://github.com/yassineaboukir/asnlookup.git && \
+cd ~/tools/ && \
+sudo git clone https://github.com/yassineaboukir/asnlookup.git && \
 cd ~/tools/asnlookup && \
 pip install -r requirements.txt && \
 cd ~/tools/ && \
 echo "------------------------------asnlookup installed--------------------------------"
 
 echo "------------------------------massdns isntalling--------------------------------" && \
-git clone https://github.com/blechschmidt/massdns.git && \
+cd ~/tools/ && \
+sudo git clone https://github.com/blechschmidt/massdns.git && \
 cd ~/tools/massdns && \
-make && \
+sudo make && \
 cd ~/tools/ && \
 echo "------------------------------massdns installed--------------------------------"
 
 echo "------------------------------lazyrecon installing--------------------------------" && \
-git clone https://github.com/nahamsec/lazyrecon.git && \
+cd ~/tools/ && \
+sudo git clone https://github.com/nahamsec/lazyrecon.git && \
 cd ~/tools/ && \
 echo "------------------------------lazyrecon installed--------------------------------"
 
 echo "------------------------------knock installing--------------------------------" && \
-git clone https://github.com/guelfoweb/knock.git && \
+cd ~/tools/ && \
+sudo git clone https://github.com/guelfoweb/knock.git && \
 cd ~/tools/ && \
 echo "------------------------------knock installed--------------------------------"
 
 echo "------------------------------virtual-host-discovery installing--------------------------------" && \
-git clone https://github.com/jobertabma/virtual-host-discovery.git && \
+cd ~/tools/ && \
+sudo git clone https://github.com/jobertabma/virtual-host-discovery.git && \
 cd ~/tools/ && \
 echo "------------------------------virtual-host-discovery installed--------------------------------"
 
 echo "------------------------------lazys3 installing--------------------------------" && \
-git clone https://github.com/nahamsec/lazys3.git && \
+cd ~/tools/ && \
+sudo git clone https://github.com/nahamsec/lazys3.git && \
 cd ~/tools/ && \
 echo "------------------------------lazys3 installed--------------------------------"
 
-# Installing WPScan
-echo "------------------------------WPScan installing--------------------------------" && \
-git clone https://github.com/wpscanteam/wpscan.git && \
-cd wpscan* && \
-sudo gem install bundler && bundle install --without test && \
-cd ~/tools/ && \
-echo "------------------------------WPScan installed--------------------------------"
-
 # Installing httprobe
 echo "------------------------------httprobe installing--------------------------------" && \
-go get -u github.com/tomnomnom/httprobe && \
+cd ~/tools/ && \
+go install -v github.com/tomnomnom/httprobe@latest && \
+cd ~/tools && \
 echo "------------------------------httprobe installed--------------------------------"
 
 # Installing waybackurls
 echo "------------------------------waybackurls installing--------------------------------" && \
-go get github.com/tomnomnom/waybackurls && \
+cd ~/tools/ && \
+go install -v github.com/tomnomnom/waybackurls@latest && \
+cd ~/tools/ && \
 echo "------------------------------waybackurls installed--------------------------------"
 
 # Installing aquatone
 echo "------------------------------aquatone installing--------------------------------" && \
-go get github.com/michenriksen/aquatone && \
+cd ~/tools/ && \
+go install -v github.com/michenriksen/aquatone@latest && \
+cd ~/tools/ && \
 echo "------------------------------aquatone installed--------------------------------"
 
 echo "------------------------------unfurl installing--------------------------------" && \
-go get -u github.com/tomnomnom/unfurl && \
+cd ~/tools && \
+go install -v github.com/tomnomnom/unfurl@latest && \
+cd ~/tools && \
 echo "------------------------------unfurl installed--------------------------------"
 
 read -p "Press any key to exit the program."
