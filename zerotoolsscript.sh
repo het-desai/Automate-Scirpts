@@ -46,15 +46,9 @@ echo "------------------------------python-pip installed------------------------
 echo "------------------------------python3-pip installing--------------------------------" && \
 sudo apt-get install -y python3-pip && \
 echo "------------------------------python3-pip installed--------------------------------"
-echo "------------------------------python-dnspython installing--------------------------------" && \
-sudo apt-get install -y python-dnspython && \
-echo "------------------------------python-dnspython installed--------------------------------"
 echo "------------------------------python-setuptools installing--------------------------------" && \
 sudo apt-get install -y python-setuptools && \
 echo "------------------------------python-setuptools installed--------------------------------"
-echo "------------------------------python-dev installing--------------------------------" && \
-sudo apt-get install -y python-dev && \
-echo "------------------------------python-dev installing--------------------------------"
 
 # lightweight and flexible command-line JSON processor
 echo "------------------------------JSON Processor installing--------------------------------" && \
@@ -153,10 +147,9 @@ sudo mv go /usr/local/go
 GOPATH=/usr/local/go
 PATH=$PATH:$GOPATH/bin
 PATH=$PATH:$HOME/go/bin
-echo 'export GOPATH=/usr/local/go' >> ~/.bash_profile
-echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.bash_profile
-echo 'export PATH=$PATH:$HOME/go/bin' >> ~/.bash_profile
-source ~/.bash_profile
+echo 'export GOPATH=/usr/local/go' >> ~/.bashrc
+echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.bashrc
+echo 'export PATH=$PATH:$HOME/go/bin' >> ~/.bashrc
 sleep 1
 fi
 echo "------------------------------Go language installed--------------------------------"
@@ -280,5 +273,3 @@ cd ~/tools && \
 echo "------------------------------unfurl installed--------------------------------"
 
 sudo init 6
-
-read -p "Press any key to exit the program."
