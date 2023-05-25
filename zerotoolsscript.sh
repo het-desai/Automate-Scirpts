@@ -24,7 +24,7 @@ echo "------------------------------rename installing---------------------------
 sudo apt-get install -y rename && \
 echo "------------------------------rename installed--------------------------------"
 echo "------------------------------snap installing--------------------------------" && \
-sudo apt-get install -y snap && \
+sudo apt-get install -y snapd && \
 echo "------------------------------snap installed--------------------------------"
 echo "------------------------------terminator installing--------------------------------" && \
 sudo apt-get install -y terminator && \
@@ -271,5 +271,3 @@ cd ~/tools && \
 go install -v github.com/tomnomnom/unfurl@latest && \
 cd ~/tools && \
 echo "------------------------------unfurl installed--------------------------------"
-
-sudo init 6
