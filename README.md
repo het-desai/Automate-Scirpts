@@ -62,7 +62,7 @@ This bash script automates the installation of essential tools and development e
 
 If you need to customize the installation process:
 
-- Open the `install.sh` script in a text editor.
+- Open the `zerotoolsscript.sh` script in a text editor.
 - Modify the script to add or remove packages based on your specific needs.
 - Save the script and run it as mentioned above.
 
