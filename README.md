@@ -1,22 +1,71 @@
-# Automate-Scirpts
-To setup tools on fresh system.
+# Automated Tool Installation Script
 
----
+This bash script automates the installation of essential tools and development environments on a fresh Linux (Ubuntu) system. It handles everything from system updates to the installation of programming languages, utilities, and specialized security tools.
+
+## Features
+
+- **System Update and Cleanup:**
+  - Updates and upgrades system packages.
+  - Removes unnecessary packages to free up space.
+
+- **Basic Software Installation:**
+  - Installs essential tools like `git`, `curl`, `wget`, `terminator`, `tmux`, and `rename`.
+  - Installs `snapd` for managing snaps.
+
+- **Programming Languages:**
+  - Installs Python 2, Python 3, Ruby, and Go along with their necessary dependencies and package managers.
+
+- **Security and Networking Tools:**
+  - Installs tools like `nmap`, `WPScan`, `Sublist3r`, `SecLists`, `asnlookup`, `massdns`, and `lazyrecon`.
+  
+- **Web Development and Utilities:**
+  - Installs `Sublime Text`, `Brave Browser`, and `Chromium`.
+  - Sets up `Oh My Bash` for a customized bash shell.
+
+- **Go-based Utilities:**
+  - Installs Go-based tools like `httprobe`, `waybackurls`, `aquatone`, and `unfurl`.
 
 ## Usage
 
-Download the zerotoolsscript.sh file
+1. **Clone the Repository:**
 
-Change the permission of that file: `chmod 700 zerotoolsscript.sh`
+   Clone this repository to your local machine:
 
-execute the script: `./zerotoolsscript.sh`
+   ```bash
+   git clone https://github.com/het-desai/Automate-Scripts.git
+   cd Automate-Scripts
+   ```
 
-*Note 1: At the end of the script, the system will reboot, so please save your work before the script's over.*
+2. **Make the Script Executable:**
 
-*Note 2: Modify seconds according to the insternet speed at line 124 in zerotoolsscript.sh file and then run it.*
+   Before running the script, make it executable:
 
-**OR**
+   ```bash
+   chmod +x zerotoolsscript.sh
+   ```
 
-Run zerotoolsscript.sh directly by following the below command:
+3. **Run the Script:**
 
-`bash -c "$(curl -fsSL https://raw.githubusercontent.com/het-desai/Automate-Scripts/main/zerotoolsscript.sh)"`
+   Execute the script to start the installation process:
+
+   ```bash
+   ./zerotoolsscript.sh
+   ```
+
+   The script will automatically update the system, install the necessary packages, and configure your development environment.
+
+4. **Post-Installation:**
+
+   After the script finishes, your system will be set up with the required tools and configurations. You might need to restart your terminal or log out and log back in for some changes to take effect.
+
+## Customization
+
+If you need to customize the installation process:
+
+- Open the `install.sh` script in a text editor.
+- Modify the script to add or remove packages based on your specific needs.
+- Save the script and run it as mentioned above.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a pull request or open an issue if you find bugs or have suggestions for improvements.
